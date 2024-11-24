@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header, nav, main, aside, footer {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .highlight {
+            color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="page-header">
+        <h1 class="main-title">Welcome to My Practice Page</h1>
+        <p>Learn and practice DOM manipulation here.</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="section1">
+            <h2 class="section-title">About Us</h2>
+            <p>This is a practice section with some content to manipulate. This paragraph has a <span class="highlight">highlighted</span> word.</p>
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image" id="image1">
+        </section>
+    
+        <section id="section2" class="container">
+            <div class="box" id="box1">
+                <h3>Services</h3>
+                <p>We offer <span class="highlight">various services</span> to practice DOM manipulation.</p>
+            </div>
+            <div class="box" id="box2">
+                <h3>Gallery</h3>
+                <img src="https://via.placeholder.com/150" alt="Gallery Image" class="gallery-image">
+                <img src="https://via.placeholder.com/150" alt="Gallery Image" class="gallery-image">
+            </div>
+        </section>
+    </main>
+    
+    <aside>
+        <h2>More Info</h2>
+        <p>This is an aside section with <a href="https://example.com">external link</a> for DOM manipulation practice.</p>
+    </aside>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+        
+            <div>
+                <label>Subscribe to Newsletter:</label>
+                <input type="radio" id="yes" name="subscribe" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="subscribe" value="no" checked>
+                <label for="no">No</label>
+            </div>
+        
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 DOM Practice Page</p>
+        <a href="#page-header">Back to Top</a>
+    </footer>
+    <script src="03-single-element-selection.js"></script>
+
+</body>
+</html>
