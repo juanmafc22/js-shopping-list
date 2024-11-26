@@ -45,6 +45,16 @@ header h1 {
   outline: none;
 }
 
+.form-input-validated {
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 3px solid darkred;
+    border-radius: 5px;
+    outline: none;
+}
+
 .form-input-filter {
   margin-top: 20px;
   width: 100%;

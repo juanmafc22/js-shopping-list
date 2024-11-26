@@ -1,43 +1,33 @@
-const itemQuantityText = document.getElementById('itemQuantity');
-const itemInput = document.getElementById('item-input');
-const title = document.querySelector('h1');
-const liItems = document.querySelectorAll('li');
-const theWindow = window;
 const form = document.getElementById('item-form');
-const addItemBtn = document.getElementById('add-item-btn');
+const itemInput = document.getElementById('item-input');
+const itemUl = document.getElementById('itemUl');
 
+// add item to the <ul></ul>
+function addItem(e) {
 
-// function to count the li items on DOM load
-function countLis() {
-    let counter = 0;
-    liItems.forEach( item => {
-        counter++;
-    })
-    itemQuantityText.innerText = counter;
-}
-
-// function to add new <li> element
-function addNewLi(e) {
-    
     e.preventDefault();
 
-    let inputValue = document.
+    // get the item entered
+    const item = itemInput.value;
 
+    // create the icon
+    const icon = document.createElement('i');
+    icon.className = 'fa-solid fa-xmark';
 
+    const button = document.createElement('button');
+    button.appendChild(icon);
+    button.className = 'remove-item btn-link';
 
+    const li = document.createElement('li');
+    li.appendChild(button);
+    li.innerText = item;
 
+    itemUl.appendChild(li);
+
+    document.getElementById('item-input').value = "";
 
 }
 
 
-
-
-
-
-// Add event listener to submit on form button
-form.addEventListener('submit', addNewLi);
-
-// Add event listener on DOM load to count the num of elements in the <ul> list
-theWindow.addEventListener('DOMContentLoaded', countLis);
-
-
+// add item to the <ul></ul> on form submit
+form.addEventListener('submit', addItem);
