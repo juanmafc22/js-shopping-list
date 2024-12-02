@@ -2,6 +2,7 @@ const form = document.getElementById("item-form");
 const itemInput = document.getElementById("item-input");
 const itemUl = document.getElementById("itemUl");
 const clearBtn = document.getElementById("clear");
+const filter = document.getElementById("filter");
 
 // add item to the <ul></ul>
 function addItem(e) {
@@ -25,6 +26,7 @@ function addItem(e) {
     li.appendChild(button);
 
     itemUl.appendChild(li);
+    tweakUI();
 
     document.getElementById("item-input").value = "";
   } else {
@@ -38,6 +40,8 @@ function deleteAllLi() {
   allLi.forEach((li) => {
     li.remove();
   });
+
+  tweakUI();
 }
 
 // function to validate if the input is emtpy or not
@@ -52,9 +56,25 @@ function validateInput(text) {
 // function to delete individual <li></li>
 function deleteLi(e) {
   if (e.target.classList.contains("fa-xmark")) {
-    e.target.parentElement.parentElement.remove();
+    if (confirm("Are you sure?")) {
+      e.target.parentElement.parentElement.remove();
+    }
+  }
+  tweakUI();
+}
+
+function tweakUI() {
+  const allLiItems = document.querySelectorAll("li");
+  if (allLiItems.length == 0) {
+    clearBtn.style.display = "none";
+    filter.style.display = "none";
+  } else {
+    clearBtn.style.display = "block";
+    filter.style.display = "block";
   }
 }
+
+tweakUI();
 
 // add click removal but through delegation, targeting the <ul></ul>
 itemUl.addEventListener("click", deleteLi);
